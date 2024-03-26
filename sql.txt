@@ -1,0 +1,18 @@
+USE [demo]
+GO
+
+/****** Object:  Table [dbo].[users]    Script Date: 26-03-2024 20:22:21 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[users](
+	[id] [int] NOT NULL,
+	[userName] [nchar](10) NULL,
+	[password] [nchar](21) NULL
+) ON [PRIMARY]
+GO
+
+
