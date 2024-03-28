@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  BackEnd:
+    build:
+      context: .
+      dockerfile: .\NodeJs\Dockerfile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mysql
+
+  FrontEnd:
+    build:
+      context: .
+      dockerfile: .\ReactJS\Dockerfile
+    ports:
+      - "3000:3000"
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
